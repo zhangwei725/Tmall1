@@ -1,5 +1,5 @@
 <section class="cartMain">
-    <form action="" method="post">
+    <form action="{% url 'confirm' %}" method="post">
         {% csrf_token %}
         <div class="cartMain_hd">
             <ul class="order_lists cartTop">

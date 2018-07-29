@@ -9,7 +9,6 @@ def shop_detail(request, id):
         shop = Shop.objects.get(shop_id=id)
         shop.imgs = shop.image_set.all()
         count = Review.objects.filter(shop_id=id).count()
-
         # 先查询分类表
         # 在去查询产品属性表
         # 在去查询差评的属性值

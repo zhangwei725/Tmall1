@@ -3,9 +3,10 @@ from django.db import models
 from apps.account.models import User
 from apps.shop.models import Shop
 from apps.order.models import Order
+from apps.home.models import BaseModel
 
 
-class ShopCar(models.Model):
+class ShopCar(BaseModel):
     car_id = models.AutoField(verbose_name='ID', primary_key=True)
     number = models.IntegerField(verbose_name='商品数量', default=0)
     shop = models.ForeignKey(Shop, on_delete=models.DO_NOTHING, verbose_name='商品ID')
@@ -15,7 +16,7 @@ class ShopCar(models.Model):
     status = models.IntegerField(default=1)
 
     class Meta:
-        db_table = 'shop_car'
+        db_table = 'car'
         verbose_name = '购物车'
         verbose_name_plural = verbose_name
 

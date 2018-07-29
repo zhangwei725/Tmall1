@@ -112,7 +112,10 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'apps/cars/static'),
+)
 
 # 访问上传文件访问的的跟路径
 MEDIA_URL = '/media/'

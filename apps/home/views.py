@@ -32,9 +32,6 @@ def index(request):
     if request.user.is_authenticated:
         count = ShopCar.objects.filter(user_id=request.user.id, status=1).count()
         request.session['count'] = count
-
     return render(request, 'index.html', {'navigations': navigations,
                                           'banners': banners,
                                           'categories': categories})
-
-

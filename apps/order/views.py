@@ -34,17 +34,15 @@ def confirm_order(request):
                 # 保存 确认购买的商品的数量
                 for key, value in check_dict.items():
                     ShopCar.objects.filter(car_id=int(key)).update(number=int(value), status=2)
-
         except:
             pass
-
     # 如果该条购车记录被选中  更新数据库的数量
-    cars = ShopCar.objects.filter(user_id=request.user.userprofile.uid, status=2)
+    cars = ShopCar.objects.filter(user=request.user, status=2)
     if cars:
         for car in cars:
             # 获取 商品的图片信息
-            car.img = car.shop.shopimage_set.all().first()
-    return render(request, 'test/confirm.html', {'cars': cars})
+            car.img = car.shop.image_set.all().first()
+    return render(request, 'buy.html', {'cars': cars})
 
 
 # 使用时间  + 随机数
@@ -123,9 +121,9 @@ def create(self, validated_data):
                 # 如果用户传入的是"支付宝支付"，那么下了订单后，订单的状态要是"待支付"
                 # 如果用户传入的是"货到付款"，那么下了订单后，订单的状态要是"代发货"
                 status=OrderInfo.ORDER_STATUS_ENUM['UNPAID']
-                if pay_method ==OrderInfo.PAY_METHODS_ENUM['ALIPAY']
+                if pay_method == OrderInfo.PAY_METHODS_ENUM['ALIPAY']
                 else
-                    OrderInfo.ORDER_STATUS_ENUM['UNSEND']
+                OrderInfo.ORDER_STATUS_ENUM['UNSEND']
             )
             # 从redis读取购物车中被勾选的商品信息
             redis_conn = get_redis_connection('carts')

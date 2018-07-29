@@ -7,7 +7,6 @@ from apps.home.models import BaseModel
 class User(AbstractUser):
     phone = models.CharField(max_length=11, default='110')
     desc = models.CharField(max_length=255, null=True)
-    uid = models.AutoField('用户ID', primary_key=True)
     icon = models.ImageField(verbose_name=u'头像', max_length=100, upload_to='upload/img/%Y%m%d',
                              default=u"apps/static/img/default.png")
 
@@ -43,7 +42,7 @@ class Review(BaseModel):
 
 class Address(BaseModel):
     address_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_column='uid')
     post_code = models.CharField(max_length=6, null=True)
     is_default = models.BooleanField(default=True)
     address = models.CharField(max_length=255)

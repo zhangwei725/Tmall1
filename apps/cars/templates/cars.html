@@ -1,8 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'cars_base.html' %}
 {% load  staticfiles %}
-{% block page_css %}
-    <link rel="stylesheet" href="{% static 'css/carts.css' %}">
-{% endblock %}
+
 <!-- parent()获取父类元素    prevAll() 获取所有兄弟元素 -->
 <!-- 核心思想  读写一体    get first set  all-->
 <!--
@@ -10,7 +8,6 @@
 ---> 定位元素---选中的元素--->查找到他的 数量的input--->
 -->
 {% block page_jq %}
-    <script src="{% static 'js/carts.js' %}"></script>
     <script type="text/javascript">
         // 选中的数量的数组
         nums = [];
@@ -41,23 +38,14 @@
                         cars: JSON.stringify(cars),
                         csrfmiddlewaretoken: '{{ csrf_token }}'
                     };
-                    /**
-                     *   $.post('{% url 'buy' %}', data)
-                     *   当使用ajax传递数组 添加属性traditional:true
-                     */
                     $.ajax({
-                        url: '{% url 'buy' %}',
+                        url: '{% url 'confirm' %}',
                         type: 'post',
                         data: data,
                         traditional: true,
                         success: function (reslut) {
-                            if (reslut && reslut === 'success') {
-                                window.location = 'http://127.0.0.1:8000/car/confirm'
-                            }else {
-                                
-                            }
                         }
-                    })
+                    });
                 }
             )
         })
