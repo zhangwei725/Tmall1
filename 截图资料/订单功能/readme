@@ -1,0 +1,9 @@
+1. 在app中创建文件夹templatetags
+2. 创建py文件
+3. 注册自定义过滤器文件
+4. 声明过滤器
+5. 注册过滤器
+6. {% load custom_filter %}
+7 {{ car.number|multiply:car.shop.promote_price }}
+
+

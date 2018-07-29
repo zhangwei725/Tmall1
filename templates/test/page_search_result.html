@@ -1,0 +1,19 @@
+<ul>
+    {% for shop in  shops %}
+        <li>
+            <a href="#">
+                <img src="http://127.0.0.1:8000/static/img/middle/{{ shop.image.shop_img_id }}.jpg">
+                <p>标题</p>
+                <p>价格</p>
+                <div><span>月成交量 70 </span> <span>评论 1</span></div>
+            </a>
+        </li>
+    {% empty %}
+        <p>没有相关的商品信息</p>
+    {% endfor %}
+
+</ul>
+
+
+
+
