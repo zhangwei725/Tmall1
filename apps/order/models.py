@@ -36,9 +36,8 @@ class OrderInfo(BaseModel):
         (5, "已完成"),
         (6, "已取消"),
     )
-
     order_id = models.CharField(max_length=64, primary_key=True, verbose_name="订单号")
-    user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="下单用户")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="下单用户")
     address = models.ForeignKey(Address, on_delete=models.PROTECT, verbose_name="收获地址")
     total_count = models.IntegerField(default=1, verbose_name="商品总数")
     total_amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="商品总金额")
@@ -48,7 +47,7 @@ class OrderInfo(BaseModel):
 
     class Meta:
         db_table = "tb_order_info"
-        verbose_name = '订单基本信息'
+        verbose_name = '订单信息'
         verbose_name_plural = verbose_name
 
 
@@ -69,14 +68,14 @@ class OrderGoods(BaseModel):
     count = models.IntegerField(default=1, verbose_name="数量")
     # max_digits ：最大的位数。decimal_places ：小数点后面保留多少位
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="单价")
-    comment = models.TextField(default="", verbose_name="评价信息")
+    comment = models.TextField(verbose_name="评价信息")
     score = models.SmallIntegerField(choices=SCORE_CHOICES, default=5, verbose_name='满意度评分')
     is_anonymous = models.BooleanField(default=False, verbose_name='是否匿名评价')
     is_commented = models.BooleanField(default=False, verbose_name='是否评价了')
 
     class Meta:
         db_table = "tb_order_goods"
-        verbose_name = '订单商品'
+        verbose_name = '订单'
         verbose_name_plural = verbose_name
 
 
@@ -90,12 +89,7 @@ class Order(models.Model):
     oid = models.AutoField('订单ID', primary_key=True)
     # 订单号唯一
     order_code = models.CharField('订单号', max_length=255)
-    address = models.CharField('配送地址', max_length=255)
-    post = models.CharField('邮编', max_length=255)
-    receiver = models.CharField('收货人', max_length=255)
-    mobile = models.CharField('手机号', max_length=11)
     user_message = models.CharField('附加信息', max_length=255)
-    create_date = models.DateTimeField('创建日期', max_length=0)
     pay_date = models.DateTimeField('支付时间', max_length=0,
                                     blank=True, null=True)
     delivery_date = models.DateTimeField('交易日期', blank=True, null=True)
@@ -110,4 +104,4 @@ class Order(models.Model):
     class Meta:
         db_table = 'order'
         verbose_name = '订单'
-        verbose_name_plural = '订单管理'
+        verbose_name_plural = verbose_name

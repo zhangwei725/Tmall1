@@ -8,10 +8,10 @@
                     {% if img.type == 'type_single' %}
                         {% if forloop.first %}
                             <img style="display: block"
-                                 src="http://127.0.0.1:8000/static/img/middle/{{ img.shop_img_id }}.jpg">
+                                 src="http://127.0.0.1:8000/static/img/middle/{{ img.img_id }}.jpg">
                         {% else %}
                             <img style="display: none"
-                                 src="http://127.0.0.1:8000/static/img/middle/{{ img.shop_img_id }}.jpg">
+                                 src="http://127.0.0.1:8000/static/img/middle/{{ img.img_id }}.jpg">
                         {% endif %}
                     {% endif %}
                 {% endfor %}
@@ -19,7 +19,7 @@
             <ul class="detail_small_img">
                 {% for img in shop.imgs %}
                     {% if img.type == 'type_single' %}
-                        <li><img src="http://127.0.0.1:8000/static/img/small/{{ img.shop_img_id }}.jpg"></li>
+                        <li><img src="http://127.0.0.1:8000/static/img/small/{{ img.img_id }}.jpg"></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -66,7 +66,7 @@
             <div class="shop_img_detail">
                 {% for img in shop.imgs %}
                     {% if img.type == 'type_detail' %}
-                        <img src="http://127.0.0.1:8000/static/img/detail/{{ img.shop_img_id }}.jpg">
+                        <img src="http://127.0.0.1:8000/static/img/detail/{{ img.img_id }}.jpg">
                     {% endif %}
                 {% endfor %}
             </div>
@@ -77,5 +77,3 @@
         </div>
     </div>
 </div>
-</body>
-</html>

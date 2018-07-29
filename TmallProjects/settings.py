@@ -30,13 +30,13 @@ EXT_APPS = [
 ]
 # 自定义的app
 CUSTOM_APPS = [
-    'apps.home',
     'apps.account',
-    'apps.search',
     'apps.cars',
-    'apps.order',
-    'apps.shop',
     'apps.category',
+    'apps.home',
+    'apps.order',
+    'apps.search',
+    'apps.shop',
 ]
 
 INSTALLED_APPS = SYS_APPS + EXT_APPS + CUSTOM_APPS
@@ -144,9 +144,9 @@ CACHES = {
 # 设置 redis存储session
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'default'
-LOGIN_URL = '/account/login/'
 
 # 用户认证相关的
+LOGIN_URL = '/account/login/'
 AUTH_USER_MODEL = 'account.User'
 
 # 邮件的相关的配置
@@ -167,21 +167,20 @@ ALIPAY_PUBLIC_KEY_STRING = open(BASE_DIR + "/alipay/public_key.txt").read()
 
 """ ======支付宝相关配置 end ======"""
 
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django.db.backends': {
             'handlers': ['console'],
             'propagate': True,
-            'level':'DEBUG',
+            'level': 'DEBUG',
         },
     }
 }

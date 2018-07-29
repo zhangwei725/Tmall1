@@ -161,7 +161,8 @@
                 };
                 {#num=1&shop_id=777#}
                 $.get(ADD_URL, data, function (result) {
-                    alert(result)});
+                    alert(result)
+                });
             })
         })
     </script>
@@ -172,7 +173,7 @@
     {% include 'include/common/page_search.html' %}
 {% endblock %}
 {% block page_content %}
-    {% include 'include/shop/page_shop_detail.html' %}
+    {% include 'include/page_shop_detail.html' %}
 {% endblock %}
 {% block page_footer %}
 {% endblock %}

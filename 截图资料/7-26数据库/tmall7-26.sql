@@ -370,7 +370,7 @@ INSERT INTO `django_content_type` VALUES (29, 'home', 'order');
 INSERT INTO `django_content_type` VALUES (30, 'home', 'property');
 INSERT INTO `django_content_type` VALUES (31, 'home', 'propertyvalue');
 INSERT INTO `django_content_type` VALUES (32, 'home', 'review');
-INSERT INTO `django_content_type` VALUES (33, 'home', 'shop');
+INSERT INTO `django_content_type` VALUES (33, 'home', 'include');
 INSERT INTO `django_content_type` VALUES (34, 'home', 'shopcar');
 INSERT INTO `django_content_type` VALUES (35, 'home', 'shopimage');
 INSERT INTO `django_content_type` VALUES (36, 'home', 'submenu');
@@ -379,19 +379,19 @@ INSERT INTO `django_content_type` VALUES (38, 'home', 'userprofile');
 INSERT INTO `django_content_type` VALUES (11, 'reversion', 'revision');
 INSERT INTO `django_content_type` VALUES (12, 'reversion', 'version');
 INSERT INTO `django_content_type` VALUES (6, 'sessions', 'session');
-INSERT INTO `django_content_type` VALUES (13, 'shop', 'banner');
-INSERT INTO `django_content_type` VALUES (14, 'shop', 'category');
-INSERT INTO `django_content_type` VALUES (15, 'shop', 'navigation');
-INSERT INTO `django_content_type` VALUES (16, 'shop', 'order');
-INSERT INTO `django_content_type` VALUES (17, 'shop', 'property');
-INSERT INTO `django_content_type` VALUES (18, 'shop', 'propertyvalue');
-INSERT INTO `django_content_type` VALUES (19, 'shop', 'review');
-INSERT INTO `django_content_type` VALUES (20, 'shop', 'shop');
-INSERT INTO `django_content_type` VALUES (21, 'shop', 'shopcar');
-INSERT INTO `django_content_type` VALUES (22, 'shop', 'shopimage');
-INSERT INTO `django_content_type` VALUES (23, 'shop', 'submenu');
-INSERT INTO `django_content_type` VALUES (24, 'shop', 'submenu2');
-INSERT INTO `django_content_type` VALUES (25, 'shop', 'user');
+INSERT INTO `django_content_type` VALUES (13, 'include', 'banner');
+INSERT INTO `django_content_type` VALUES (14, 'include', 'category');
+INSERT INTO `django_content_type` VALUES (15, 'include', 'navigation');
+INSERT INTO `django_content_type` VALUES (16, 'include', 'order');
+INSERT INTO `django_content_type` VALUES (17, 'include', 'property');
+INSERT INTO `django_content_type` VALUES (18, 'include', 'propertyvalue');
+INSERT INTO `django_content_type` VALUES (19, 'include', 'review');
+INSERT INTO `django_content_type` VALUES (20, 'include', 'include');
+INSERT INTO `django_content_type` VALUES (21, 'include', 'shopcar');
+INSERT INTO `django_content_type` VALUES (22, 'include', 'shopimage');
+INSERT INTO `django_content_type` VALUES (23, 'include', 'submenu');
+INSERT INTO `django_content_type` VALUES (24, 'include', 'submenu2');
+INSERT INTO `django_content_type` VALUES (25, 'include', 'user');
 INSERT INTO `django_content_type` VALUES (7, 'xadmin', 'bookmark');
 INSERT INTO `django_content_type` VALUES (10, 'xadmin', 'log');
 INSERT INTO `django_content_type` VALUES (8, 'xadmin', 'usersettings');
@@ -14123,7 +14123,7 @@ CREATE TABLE `review`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for shop
+-- Table structure for include
 -- ----------------------------
 DROP TABLE IF EXISTS `shop`;
 CREATE TABLE `shop`  (
@@ -14143,7 +14143,7 @@ CREATE TABLE `shop`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of shop
+-- Records of include
 -- ----------------------------
 INSERT INTO `shop` VALUES (87, 'Konka/康佳 LED32S1卧室32吋安卓智能无线WIFI网络液晶平板电视机', '32吋电视机 8核智能 网络 全国联保 送货上门', 1699.00, 1104.35, 98, 83, '2016-08-13 16:43:32.000000');
 INSERT INTO `shop` VALUES (88, 'Hisense/海信 LED49EC320A 49吋led液晶电视机智能网络平板电视50', '新品特惠 十核智能 内置WiFi 咨询有惊喜', 2799.00, 1679.40, 90, 83, '2016-07-28 16:43:38.000000');

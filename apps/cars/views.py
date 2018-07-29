@@ -6,16 +6,14 @@ from apps.cars.models import ShopCar
 
 
 @login_required
-def add_car(request):
-    # noinspection PyBroadException
+def add(request):
     try:
-        uid = request.user.userprofile.uid
+        uid = request.user.id
         num = int(request.GET.get('num'))
         shop_id = int(request.GET.get('shop_id'))
         # 验证参数是否正确
         if shop_id and num and uid:
             # 先判断 该用户 购物车中 是否 存在 该商品
-
             car = ShopCar.objects.get(user=request.user.userprofile, shop_id=shop_id)
             if car:
                 # 如果存在，则仅作数量上的 加法

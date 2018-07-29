@@ -1,8 +1,6 @@
 from django.db import models
-
-from apps.shop.models import Shop
 from django.contrib.auth.models import AbstractUser
-
+from apps.shop.models import Shop
 from apps.home.models import BaseModel
 
 
@@ -33,8 +31,8 @@ class User(AbstractUser):
 class Review(BaseModel):
     review_id = models.AutoField('ID', primary_key=True)
     content = models.CharField('内容', max_length=4000, )
-    shop = models.ForeignKey(Shop, models.DO_NOTHING, db_column='shop_id', db_index=True, verbose_name="商品ID")
-    user = models.ForeignKey(User, models.DO_NOTHING, db_column='uid', db_index=True,
+    shop = models.ForeignKey(Shop, on_delete=models.DO_NOTHING, db_index=True, verbose_name="商品ID")
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, db_column='uid', db_index=True,
                              verbose_name='用户ID')
 
     class Meta:

@@ -20,19 +20,19 @@
     {#搜索#}
     {% include 'include/common/page_search.html' %}
     <div class="category_carousel">
-        {% include 'include/index/page_navigation.html' %}
+        {% include 'include/page_navigation.html' %}
         {#分类#}
         <div style="position: relative">
-            {% include 'include/index/page_category.html' %}
+            {% include 'include/page_category.html' %}
             {# 轮播#}
-            {% include 'include/index/page_banner.html' %}
+            {% include 'include/page_banner.html' %}
         </div>
     </div>
     {#    {% endcache %}#}
 {% endblock %}
 {% block page_content %}
     {# 分类商品信息#}
-    {% include 'include/index/page_category_shops.html' %}
+    {% include 'include/page_category_shops.html' %}
 {% endblock %}
 {% block page_footer %}
     {% include 'include/common/footer.html' %}

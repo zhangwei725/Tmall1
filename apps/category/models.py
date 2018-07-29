@@ -31,8 +31,8 @@ class SubMenu(models.Model):
         verbose_name_plural = verbose_name
 
 
-class TwoMenu(BaseModel):
-    sub_menu2_id = models.AutoField('ID', primary_key=True)
+class TwoMenu(models.Model):
+    tm_id = models.AutoField('ID', primary_key=True)
     name = models.CharField('名称', max_length=255)
     sub_menu = models.ForeignKey(SubMenu, models.DO_NOTHING,
                                  verbose_name='一级菜单')

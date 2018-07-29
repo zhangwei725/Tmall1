@@ -26,8 +26,8 @@ def confirm_order(request):
             # id_list.append()
             # 字典如果想值作为key就必须采用[key]方式
             check_dict[ids[int(index)]] = numbers[int(index)]
-            # key = check_dict[ids[index(index)]]
-            # value = numbers[int(index)]
+            # key = check_dict[ids[include(include)]]
+            # value = numbers[int(include)]
             # check_dict.update(key=value)
         try:
             with transaction.atomic():
@@ -44,7 +44,7 @@ def confirm_order(request):
         for car in cars:
             # 获取 商品的图片信息
             car.img = car.shop.shopimage_set.all().first()
-    return render(request, 'confirm.html', {'cars': cars})
+    return render(request, 'test/confirm.html', {'cars': cars})
 
 
 # 使用时间  + 随机数
